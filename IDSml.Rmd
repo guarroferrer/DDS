@@ -33,7 +33,7 @@ for (pkg in arrayPackages) {
 
 
 ##DEscarreguem  Arxius si no estan a working directory
-urlBook1 <- "https://github.com/guarroferrer/DDS/blob/main/Book1.csv"
+urlBook1 <- "https://github.com/guarroferrer/DDS/raw/main/Book1.csv"
 Book1 <- "Book1.csv"
 rutaFile <- file.path(getwd(), Book1)
 
@@ -41,7 +41,7 @@ if (!file.exists(rutaFile)) {
   download.file(urlBook1, destfile = rutaFile, method = "auto")
 }
 
-urlBook2 <- "https://github.com/guarroferrer/DDS/blob/main/Book2.csv"
+urlBook2 <- "https://github.com/guarroferrer/DDS/raw/main/Book2.csv"
 Book2 <- "Book2.csv"
 rutaFile2 <- file.path(getwd(), Book2)
 
