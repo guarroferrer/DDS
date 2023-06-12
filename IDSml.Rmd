@@ -81,7 +81,7 @@ Convertimos los tipos de columnas a tipos de datos que sean más útiles
 para el arbol de decisiones
 
 ```{r feature_selection, echo=FALSE}
-data1 <- data[,c("SrcBytes", "DstBytes", "Land", "WrongFragment", "Urgent", "SameSrvRate", "LoggedIn",  "DstHostSameSrvRate", "DstHostSrvCount","Flag","Attack","Duration","NumCompromised","NumShells","Service","ProtocolType","NumFailedLogin","IsGuestLogin" ,"NumShells","SrvCount","SerrorRate","RerrorRate","SrcBytes","DstBytes","Count","NumRoot","SuAttempted")]
+data1 <- data[,c("SrcBytes", "DstBytes", "Land", "WrongFragment", "Urgent", "SameSrvRate", "LoggedIn",  "DstHostSameSrvRate", "DstHostSrvCount","Flag","Attack","Duration","NumCompromised","NumShells","Service","ProtocolType","NumFailedLogin","IsGuestLogin" ,"NumShells","SrvCount","SerrorRate","RerrorRate","SrcBytes","DstBytes","Count","NumRoot","SuAttempted","NumAccessFiles")]
 # data1 <- data[,c(4:12)]
 data1$Attack <- as.factor(data1$Attack)
 data1$LoggedIn <- as.logical(data1$LoggedIn)
@@ -111,7 +111,7 @@ registos que tengan 1 único tipo de ataque.
 valores vacios. El código de borrado no acaba de funcionar bien. Opto
 por comentar hasta que encuentre la forma de borrado correcta
 
-``` R
+``` r
 #buscamos valores únicos y borramos valores con 1 único valor
 #AttackSingle <- names(numMaxAttack[numMaxAttack == 1])
 #data1 <- subset(data1, !(Attack %in% AttackSingle))
@@ -135,7 +135,7 @@ numMaxAttack
 Note that the `echo = FALSE` parameter was added to the code chunk to
 prevent printing of the R code that generated the plot.
 
-### **Creación Data Partition** 
+### **Creación Data Partition**
 
 Del datatset seleccionamos el 70% para entreno el 30% restante para
 validacion
@@ -179,7 +179,7 @@ table(valid$match)
 Intentamos visualizar el arbol de de deciciones ###Desactivado
 incrementa mucho el tiempo de carga y no nos aporta valor
 
-``` R
+``` r
 #fit <- rpart(data1$Attack~., data = data1, method = 'class')
 #rpart.plot(fit, extra = 100,box.palette = "auto") 
 #posem 0 perque no surti warning, no surt amb color
@@ -268,3 +268,10 @@ kableExtra::kable(cm$table)
 ```{r conf_matrix_heatmap, echo=FALSE}
 heatmap(cm$table)
 ```
+
+```{r}
+
+
+```
+
+# Conclusiones
